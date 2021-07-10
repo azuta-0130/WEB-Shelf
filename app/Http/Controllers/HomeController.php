@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Shelf;
 use Illuminate\Http\Request;
+use Illuminate\Http\Requests\HomeRequest;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -33,33 +36,29 @@ class HomeController extends Controller
        }
 
        //マイページ画面表示
-       public function mypage() 
+       public function mypage($id) 
        {
+           $shelf = Shelf::find($id);
            return view("mypage");   
        }
 
-       public function exeCreate(SubmissionRequest $request)
+       public function exeCreate(Request $request)
        {
            // 画像を受け取る
-           $upload_image = $request->file('image');
-           //アップロードされた画像を保存
-           $path = $upload_image->store('images', 'public');
-           //ブログのデータ受け取る
-           $inputs = $request->all();
+           $data = $request->all();
+           $image = $request->file('image');
+           //画像をstorageに保存
+           $path = \Storage::put('/public', $image);
+           $path = explode('/', $path);
            
-           $inputs['user_id'] = Auth::id();
-           // 画像データを格納
-           $image_data = array(
-               'image' => $upload_image->getClientOriginalName(),
-               'image_path' => $path
-           );
-           // 画像データを$inputsに追加する
-           $input_contents = array_merge($inputs, $image_data);
-           // データベース接続
+           $data['user_id'] = Auth::id();
+           $data['image'] = $path[1];
+           array_shift($data);
+        //    dd($data);
+     
            \DB::beginTransaction();
            try {
-               //ブログを登録する
-               Submission::create($input_contents);
+               Shelf::create($data);
                \DB::commit();
            } catch (\Throwable $e) {
                \DB::rollback();
