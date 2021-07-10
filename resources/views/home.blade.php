@@ -121,7 +121,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/mypage') }}">作成画面</a>
+                        <a href="{{ url('/mypage') }}">棚の作成</a>
                     @else
                         <a href="{{ route('login') }}">ログイン</a>
 
@@ -138,9 +138,9 @@
           <div class="content">
             <h2>タイトル名</h2>
             <ul class="sample_image">
-              <li><img width="200" height="200" src="images/EUsW52NUMAEgaUV.jpg" alt="サンプル画像"></li>
-              <li><img width="200" height="200" src="images/EUsW52NUMAEgaUV.jpg" alt="サンプル画像"></li>
-              <li><img width="200" height="200" src="images/EUsW52NUMAEgaUV.jpg" alt="サンプル画像"></li>
+              <li><img width="200" height="250" src="images/積み上げ力.jpg" alt="サンプル画像"></li>
+              <li><img width="200" height="250" src="images/嫌われる勇気.jpg" alt="サンプル画像"></li>
+              <li><img width="200" height="250" src="images/お金持ちになれる黄金の羽.jpg" alt="サンプル画像"></li>
             </ul>
             <ul class="sample_image">
               <li class="sample_title">タイトル</li>
@@ -155,9 +155,9 @@
           <div class="content">
             <h2>タイトル名</h2>
             <ul class="sample_image">
-              <li><img width="200" height="200" src="images/EUsW52NUMAEgaUV.jpg" alt="サンプル画像"></li>
-              <li><img width="200" height="200" src="images/EUsW52NUMAEgaUV.jpg" alt="サンプル画像"></li>
-              <li><img width="200" height="200" src="images/EUsW52NUMAEgaUV.jpg" alt="サンプル画像"></li>
+              <li><img width="200" height="250" src="images/積み上げ力.jpg" alt="サンプル画像"></li>
+              <li><img width="200" height="250" src="images/嫌われる勇気.jpg" alt="サンプル画像"></li>
+              <li><img width="200" height="250" src="images/お金持ちになれる黄金の羽.jpg" alt="サンプル画像"></li>
             </ul>
             <ul class="sample_image">
               <li class="sample_title">タイトル</li>

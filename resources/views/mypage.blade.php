@@ -32,19 +32,20 @@
    margin: 0 auto;
  }
  </style>
-  <form id="not_use" action="{{ route('create') }}" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
+  <form id="" action="{{ route('create') }}" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
+  @csrf
     <!-- <input name="utf8" type="hidden" value="&#x2713;" />
     <input type="hidden" name="authenticity_token"value=""/> -->
 
     <div class="form-group title">タイトル名</div>
       <div class="form-group col-5">
-        <textarea id="title" class="form-control" rows="1" name="title"></textarea>
+        <textarea id="title" class="form-control" rows="1" name="main_title"></textarea>
       </div>
 
       <div class="text">
         <div class="form-group form-text">①</div>
         <div class="form-group col-5">
-        <textarea id="keyword1" class="form-control" rows="1" name="keyword1"></textarea>
+        <textarea id="keyword1" class="form-control" rows="1" name="title_1"></textarea>
         <div class="form-group col-1 search" id='search1'>
           <i class="fa fa-search fa-lg"></i>
         </div>
@@ -60,7 +61,7 @@
     <div class="text">
       <div class="form-group form-text">②</div>
       <div class="form-group col-5">
-        <textarea id="keyword2" class="form-control" rows="1" name="keyword2"></textarea>
+        <textarea id="keyword2" class="form-control" rows="1" name="title_2"></textarea>
       </div>
       <div class="form-group col-1 search" id='search2'>
         <i class="fa fa-search fa-lg"></i>
@@ -69,20 +70,20 @@
     <div class="form-group col-5">
       <div class="form-image">
         <label>画像</label>
-          <input name="image" type="file" value="" accept="image/png, image/jpeg">
+          <input name="image_name2" type="file" value="" accept="image/png, image/jpeg">
       </div>
     </div>
 
     <div class="text">
       <div class="form-group form-text">③</div>
       <div class="form-group col-5">
-        <textarea id="keyword3" class="form-control" rows="1" name="keyword3"></textarea>
+        <textarea id="keyword3" class="form-control" rows="1" name="title_3"></textarea>
       </div>
     </div>
     <div class="form-group col-5">
       <div class="form-image">
         <label>画像</label>
-          <input name="image" type="file" value="" accept="image/png, image/jpeg">
+          <input name="image_name3" type="file" value="" accept="image/png, image/jpeg">
       </div>
     </div>
 
@@ -93,8 +94,9 @@
       </div>
   </div>
 
-    <div id="preview">
-    <img width="315" src="#"/>
+
+  <div id="preview">
+    <img width="315" src="">
     <span id="title_preview"></span>
     <span id="img1" data-title="">
       <a href="" target="_blank" id="preview_url1">
@@ -112,5 +114,4 @@
       </a>
     </span>
   </div>
-</div>
 @endsection
